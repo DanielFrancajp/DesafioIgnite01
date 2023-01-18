@@ -13,8 +13,10 @@ export default function Home() {
 
         <View style={styles.container}>
 
+
             <Text style={styles.EventName1}> to</Text>
             <Text style={styles.EventName2}> do</Text>
+
 
 
 
@@ -24,12 +26,23 @@ export default function Home() {
                     placeholderTextColor="#808080"
 
                 />
+
+                <TouchableOpacity style={styles.Button}>
+                    <Text style={styles.ButtonText}> + </Text>
+
+                </TouchableOpacity>
             </View>
 
-            <TouchableOpacity style={styles.Button}>
-                <Text style={styles.ButtonText}> + </Text>
+            <View style={styles.Space}>
 
-            </TouchableOpacity>
+                <Text style={styles.Maids}> Criadas </Text>
+                <Text style={{paddingRight: 180}}>0</Text>
+                <Text style={styles.Concluded}> Concluídas</Text>
+                <Text >0</Text>
+
+            </View>
+
+
 
 
         </View>

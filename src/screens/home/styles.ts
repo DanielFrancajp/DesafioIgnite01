@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
         backgroundColor: "#0D0D0D",
         padding: 24,
     },
-    EventName1: {
+       EventName1: {
         color: "#4EA8DE",
         alignItems: 'center',
         fontSize: 32,
@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
         color: "#5E60CE",
         fontSize: 32,
         fontWeight: 'bold',
-        
+
     },
     Form: {
         width: '100%',
@@ -43,12 +43,24 @@ export const styles = StyleSheet.create({
         backgroundColor: '#1E6F9F',
         alignItems: 'center',
         justifyContent: 'center',
-
-
     },
     ButtonText: {
         color: '#FFF',
         fontSize: 24,
+
+    },
+    Space:{
+        flex:1,
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },
+     Maids: {
+        color: "#4EA8DE",
+        textAlign:'left'
+    },
+    Concluded: {
+        color: '#8284FA',
+        textAlign:'right'
 
     }
 })
