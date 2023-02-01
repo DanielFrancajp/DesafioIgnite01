@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+    Alert,
     FlatList,
     Image,
     Text,
@@ -17,42 +18,19 @@ import { styles } from './styles'
 
 export default function Home() {
 
+    const [phrases, setPhrases] = useState<string[]>([]);
+    const [phraseNames, setPhraseNames] = useState('');
 
+    function handlePhraseAdd() {
+        if (phrases.includes(phraseNames)) {
+            return Alert.alert("Tarefa existente na lista, por favor inclua uma tarefa diferente.")
+        }
+        setPhrases(prevState => [...prevState, phraseNames])
+        console.log('vc clicou aqui bb');
 
-    const data = [
-        {
-            id: "1",
-            description: "teste de exibicao de texto 1",
-            status: false,
-            delete: false,
-        },
-        {
-            id: "2",
-            description: "teste de exibicao de texto 2",
-            status: false,
-            delete: false
-        },
-        {
-            id: "3",
-            description: "teste de exibicao de texto 3",
-            status: false,
-            delete: false
-        },
-        {
-            id: "4",
-            description: "teste de exibicao de texto 4 ",
-            status: true,
-            delete: false
-        },
-        {
-            id: "5",
-            description: "teste de exibicao de texto 5 ",
-            status: true,
-            delete: false
-        },
-    ]
+    }
 
-       return (
+    return (
 
 
         <View style={styles.container}>
@@ -68,12 +46,15 @@ export default function Home() {
                         style={styles.Input}
                         placeholder={'Adicione uma nova tarefa'}
                         placeholderTextColor="#808080"
+                        onChangeText={setPhraseNames}
+                        value={phraseNames}
                     />
                     <TouchableOpacity style={styles.Button}>
                         <IconAcept
                             name="pluscircleo"
                             color="white"
                             size={20}
+                            onPress={handlePhraseAdd}
                         />
 
                     </TouchableOpacity>
@@ -101,72 +82,13 @@ export default function Home() {
                     </View>
                 </View>
 
-                <FlatList
-                    data={data}
-                    extraData={data}
-                    ListEmptyComponent={
-                        <View style={styles.container__mid}>
-
-
-                            <Image
-                                source={require("../../../assets/Clipboard.png")}
-                                style={styles.image__clipboard}
-
-                            />
-                            <Text style={styles.text1}> Você ainda não tem tarefas cadastradas</Text>
-                            <Text style={styles.text2}> Crie tarefas e organize seus itens a fazer</Text>
-
-                        </View>
-                    }
-                    renderItem={({ item }) => (
-                        <>
-                            {item.delete === false &&
-                                <View style={styles.containerFlat} >
-                                    <View style={styles.contentFlat} >
-                                        <View style={styles.buttonStatus} >
-                                            {item.status === false ?
-                                                <TouchableOpacity >
-                                                    <IconCircle
-                                                        name="circle-thin"
-                                                        color="purple"
-                                                        size={25}
-                                                    />
-
-                                                </TouchableOpacity>
-                                                :
-                                                <View >
-                                                    <IconAcept
-                                                        name="checkcircle"
-                                                        color="purple"
-                                                        size={20}
-                                                    />
-
-                                                </View>
-                                            }
-                                        </View>
-                                        <View style={styles.description} >
-                                            <Text style={styles.textDescription} >{item.description}</Text>
-                                        </View>
-                                        <View style={styles.buttonDelete} >
-                                            <TouchableOpacity >
-                                                <IconDelete
-                                                    name="delete-outline"
-                                                    color="red"
-                                                    size={25}
-                                                />
-
-                                            </TouchableOpacity>
-                                        </View>
-                                    </View>
-                                </View>
-                            }
-                        </>
-                    )}
-                    keyExtractor={item => item.id}
-                />
 
             </View>
         </View>
+
+
+
+
 
 
     )

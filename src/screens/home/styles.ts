@@ -95,6 +95,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
 
     },
+    
     container__mid: {
         flex: 1,
         justifyContent: "center",
@@ -112,30 +113,8 @@ export const styles = StyleSheet.create({
     text2: {
         color: '#808080'
     },
-    containerFlat: {
-    marginHorizontal: 18,
-    padding: 10,
-    borderColor: "#333333",
-    borderRadius: 8,
-    borderWidth: 1,
-    marginVertical: 10,
-    },
-    contentFlat:{
-        width: "100%",
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-    },
-    buttonStatus:{
-        justifyContent: "center",
-        alignItems: "center",
-        width: "7%"
-    },
-    buttonDelete:{
-        width: "7%",
-        justifyContent: "center",
-        alignItems: "center",
-
-    },
+    
+   
     textDescription:{
         color:"#FFFFFF",
         fontWeight: "bold",
@@ -148,6 +127,30 @@ export const styles = StyleSheet.create({
         borderRightWidth: 1,
         borderColor: "#333333",
         width: "80%"
-    }
+    },
+    buttonDelete: {
+        width: "7%",
+        justifyContent: "center",
+        alignItems: "center",
 
+    },
+    containerFlat: {
+        marginHorizontal: 18,
+        padding: 10,
+        borderColor: "#333333",
+        borderRadius: 8,
+        borderWidth: 1,
+        marginVertical: 10,
+        },
+        contentFlat:{
+            width: "100%",
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+        },
+        buttonStatus:{
+            justifyContent: "center",
+            alignItems: "center",
+            width: "7%"
+        },
 })
+
