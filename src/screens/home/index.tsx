@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import {
-    Alert,
     FlatList,
     Image,
     Text,
     TextInput,
     TouchableOpacity,
     View,
+    Alert
 
 } from 'react-native'
-import IconAdd from 'react-native-vector-icons/AntDesign';
+
+import { Tasks } from "../../components/Tasks";
+
+
 import IconAcept from 'react-native-vector-icons/AntDesign';
 import IconDelete from "react-native-vector-icons/MaterialIcons";
 import IconCircle from "react-native-vector-icons/FontAwesome"
@@ -18,20 +21,40 @@ import { styles } from './styles'
 
 export default function Home() {
 
-    const [phrases, setPhrases] = useState<string[]>([]);
-    const [phraseNames, setPhraseNames] = useState('');
+    const [phrases, setPhrases] = useState<string[]>([""]);
+    const [phrases2, setPhrases2] = useState('');
 
     function handlePhraseAdd() {
-        if (phrases.includes(phraseNames)) {
-            return Alert.alert("Tarefa existente na lista, por favor inclua uma tarefa diferente.")
-        }
-        setPhrases(prevState => [...prevState, phraseNames])
-        console.log('vc clicou aqui bb');
 
+        if (phrases.includes(phrases2)) {
+            return Alert.alert("Frase Existente .", " Já existe uma frase da mesma maneira, por favor escreva novamente :)")
+
+        }
+        setPhrases(prevState => [...prevState, phrases2]);
+        setPhrases2('');
     }
 
-    return (
+    function handlePhraseRemove(name: string) {
 
+
+        Alert.alert("Remover frase", `deseja remover a frase ${name}?`, [
+            {
+                text: 'Sim',
+                onPress: () => setPhrases(prevState => prevState.filter(phrases => phrases !== name))
+
+            },
+            {
+                text: 'Não',
+                style: 'cancel'
+            }
+        ])
+    }
+
+    function handleButtonCheck(ckeck: boolean) 
+    {
+       
+    }
+    return (
 
         <View style={styles.container}>
 
@@ -46,8 +69,9 @@ export default function Home() {
                         style={styles.Input}
                         placeholder={'Adicione uma nova tarefa'}
                         placeholderTextColor="#808080"
-                        onChangeText={setPhraseNames}
-                        value={phraseNames}
+                        onChangeText={setPhrases2}
+                        value={phrases2}
+
                     />
                     <TouchableOpacity style={styles.Button}>
                         <IconAcept
@@ -82,8 +106,39 @@ export default function Home() {
                     </View>
                 </View>
 
+                <FlatList
+                    keyExtractor={item => item}
+                    data={phrases}
+                    renderItem={({ item }) => (
+                        <Tasks
+                            key={item}
+                            phrase={item}
+                            onRemove={() => handlePhraseRemove(item)} />
+                    )}
+                    showsVerticalScrollIndicator={false}
+                    ListEmptyComponent={() => (
 
+                        <>
+                            <View style={styles.contentFlat}>
+                                <Image
+                                    source={require("../../../assets/Clipboard.png")}
+                                    style={styles.image__clipboard}
+                                />
+                            </View>
+
+                            <Text style={styles.text1}>
+                                Você ainda não tem tarefas cadastradas
+
+                            </Text>
+                            <Text style={styles.text2}>
+                                Crie tarefas e organize seus itens a fazer
+                            </Text>
+                        </>
+                    )}
+
+                />
             </View>
+
         </View>
 
 

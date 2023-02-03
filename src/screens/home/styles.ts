@@ -56,7 +56,8 @@ export const styles = StyleSheet.create({
         marginTop: 25,
         borderBottomWidth: 1,
         borderBottomColor: '#333333',
-        paddingBottom: 20
+        paddingBottom: 20,
+
     },
     buttonCreate: {
         fontSize: 14,
@@ -95,62 +96,34 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
 
     },
-    
-    container__mid: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 250,
-    },
+
     image__clipboard: {
         marginTop: 40,
         marginBottom: 20
     },
     text1: {
         color: '#808080',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     text2: {
         color: '#808080'
     },
-    
-   
-    textDescription:{
-        color:"#FFFFFF",
+
+
+    textDescription: {
+        color: "#FFFFFF",
         fontWeight: "bold",
 
     },
-    description:{
-        alignItems: "center",
-        justifyContent: "center",
-        borderLeftWidth: 1,
-        borderRightWidth: 1,
-        borderColor: "#333333",
-        width: "80%"
+    contentFlat: {
+        width: "100%",
+        justifyContent: 'center',
+        flexDirection: 'row',
     },
-    buttonDelete: {
-        width: "7%",
+    buttonStatus: {
         justifyContent: "center",
         alignItems: "center",
-
+        width: "7%"
     },
-    containerFlat: {
-        marginHorizontal: 18,
-        padding: 10,
-        borderColor: "#333333",
-        borderRadius: 8,
-        borderWidth: 1,
-        marginVertical: 10,
-        },
-        contentFlat:{
-            width: "100%",
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-        },
-        buttonStatus:{
-            justifyContent: "center",
-            alignItems: "center",
-            width: "7%"
-        },
-})
+ })
 
